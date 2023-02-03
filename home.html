@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Let's Go</title>
+    </head>
+    <body>
+        <button onclick="location.href='{% url 'script' %}'">Execute</button><hr>
+        {% if data %}
+        {{data | safe}}
+        {% endif %}
+
+<br><br>
+        <form action="/external/" method="post" ecrtypev="multipart/form-data">
+            {% csrf_token %}
+            Input Text:
+            <input type="text" name="param" required><br><br>
+            
+            <input type = "file" name = "image" required>
+            <br><br>
+            <input type="submit" value="Execute External Python Script">
+        </form>
+
+
+    </body>
+</html>
